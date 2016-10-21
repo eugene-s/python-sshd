@@ -2,15 +2,27 @@ FROM python:2.7-alpine
 MAINTAINER Eugene Savchenko
 
 ENV PROJECT_PATH /usr/src/python-app/
-ENV VENV_PATH /root/venv/
-ENV SSH_SERVER_KEYS /etc/ssh/host_keys/
+    VENV_PATH /root/venv/
+    SSH_SERVER_KEYS /etc/ssh/host_keys/
+
+#
+# Install virtualenv for developing
+#
 
 RUN pip install --no-cache-dir virtualenv
 
-EXPOSE 22
+#
+# Copy rootfs files
+#
+
 COPY rootfs /
 
+#
 # Install ssh-server for connect remote python interpreter
+#
+
+EXPOSE 22
+
 RUN apk update && \
     apk add bash openssh && \
     mkdir -p ${SSH_SERVER_KEYS} && \
@@ -24,6 +36,10 @@ RUN apk update && \
     rm -rf /var/cache/apk/* /tmp
 
 WORKDIR ${PROJECT_PATH}
+
+#
+# Saving dev virtualenv and ssh host keys
+#
 
 VOLUME ["${VENV_PATH}", "${SSH_SERVER_KEYS}"]
 
