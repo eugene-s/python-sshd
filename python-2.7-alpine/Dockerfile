@@ -1,9 +1,9 @@
 FROM python:2.7-alpine
 MAINTAINER Eugene Savchenko
 
-ENV PROJECT_PATH=/usr/src/python-app/
-ENV VENV_PATH=/root/venv/
-ENV SSH_SERVER_KEYS=/etc/ssh/host_keys/
+ENV PROJECT_PATH /usr/src/python-app/
+ENV VENV_PATH /root/venv/
+ENV SSH_SERVER_KEYS /etc/ssh/host_keys/
 
 RUN pip install --no-cache-dir virtualenv
 
