@@ -1,25 +1,18 @@
-# python-sshd
+# Python-sshd
 
 Remote python interpreter with Alpine Linux.
 
-## To use with docker-compose:
-```yml
-version: "2"
+**Only for developing**.
 
-services:
-  python-ssh:
-    environment:
-      - HOST_IP=127.23.42.52
-      - SSH_REMOTE_PORT=1022
-      - PROJECT_NAME=python-ssh
-    build: eugenes1/python-sshd
-    ports:
-      - "${HOST_IP}:${SSH_REMOTE_PORT}:22"
-    volumes:
-      - python-ssh-root:/root/
-      - .:/usr/src/${PROJECT_NAME}
-
-volumes:
-  python-ssh-root:
-    driver: local
+## How to use
+### Connect to ssh
+1. Run image:
 ```
+docker run -it --rm --name my-python-app -p <your-ssh-port>:22 -v "$PWD":/usr/src/python-app eugenes1/python-sshd
+```
+2. Connect to the image over ssh with credentials:
+* user: `root`
+* password: `root`
+### Use as remote interpreter
+- Python interpreter dir: `/root/venv/bin/python`
+- You can install new requirements without loosing it after restarting image
