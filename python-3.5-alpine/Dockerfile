@@ -5,7 +5,7 @@ ENV PROJECT_PATH=/usr/src/python-app/
 ENV VENV_PATH=/root/venv/
 ENV SSH_SERVER_KEYS=/etc/ssh/host_keys/
 
-RUN pip install virtualenv
+RUN pip install --no-cache-dir virtualenv
 
 EXPOSE 22
 COPY rootfs /
