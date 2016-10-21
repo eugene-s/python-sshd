@@ -1,4 +1,4 @@
-FROM python:3.5.12-alpine
+FROM python:3.5.2-alpine
 MAINTAINER Eugene Savchenko
 
 EXPOSE 22
