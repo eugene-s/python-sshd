@@ -27,4 +27,4 @@ WORKDIR ${PROJECT_PATH}
 
 VOLUME ["${VENV_PATH}", "${SSH_SERVER_KEYS}"]
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
