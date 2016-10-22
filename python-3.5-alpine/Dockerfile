@@ -43,4 +43,4 @@ WORKDIR ${PROJECT_PATH}
 
 VOLUME ["${VENV_PATH}", "${SSH_SERVER_KEYS}"]
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/sbin/entrypoint.sh"]
