@@ -15,7 +15,7 @@ RUN pip install --no-cache-dir virtualenv
 # Copy rootfs files
 #
 
-COPY rootfs /
+ADD rootfs /
 
 #
 # Install ssh-server for connect remote python interpreter
