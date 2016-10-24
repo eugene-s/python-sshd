@@ -15,7 +15,7 @@ RUN pip install --no-cache-dir virtualenv
 # Copy rootfs files
 #
 
-COPY rootfs/ /
+COPY rootfs /
 
 #
 # Install ssh-server for connect remote python interpreter
@@ -43,4 +43,4 @@ WORKDIR ${PROJECT_PATH}
 
 VOLUME ["${VENV_PATH}", "${SSH_SERVER_KEYS}"]
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
