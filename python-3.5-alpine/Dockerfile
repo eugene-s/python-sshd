@@ -12,10 +12,20 @@ ENV SSH_SERVER_KEYS /etc/ssh/host_keys/
 RUN pip install --no-cache-dir virtualenv
 
 #
-# Copy rootfs files
+# Copy files
 #
 
-COPY rootfs /
+# Changed login message
+COPY /rootfs/etc/motd /etc/
+
+# Added apply python virtual env on login over ssh
+COPY /rootfs/root/.profile /root/
+
+# Added entrypoint
+COPY /rootfs/entrypoint.sh /
+
+# Added shell script activate virtual env
+COPY /rootfs/usr/local/bin/activate.sh /usr/local/bin/
 
 #
 # Install ssh-server for connect remote python interpreter
