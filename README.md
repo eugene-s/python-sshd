@@ -10,7 +10,7 @@ Remote python interpreter with Alpine Linux.
 
 1. Run image:
 
-    ```
+    ```{r, engine='bash'}
     docker run -it --rm --name my-python-app -p <your-ssh-port>:22 -v "$PWD":/usr/src/python-app eugenes1/python-sshd
     ```
     
