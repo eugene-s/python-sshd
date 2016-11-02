@@ -43,4 +43,6 @@ WORKDIR ${PROJECT_PATH}
 
 VOLUME ["${VENV_PATH}", "${SSH_SERVER_KEYS}"]
 
-CMD ["entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
+
+CMD ["/usr/sbin/sshd", "-D", "-e"]
