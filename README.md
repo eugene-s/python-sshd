@@ -11,7 +11,7 @@ Remote python interpreter with Alpine Linux over ssh.
 1. Run image:
 
     ```{r, engine='bash'}
-    docker run -it --rm --name my-python-app -p <your-ssh-port>:22 -v "$PWD":/usr/src/python-app eugenes1/python-sshd
+    docker run -d --name my-python-app -p <your-ssh-port>:22 -v "$PWD":/usr/src/python-app eugenes1/python-sshd
     ```
     
 2. Connect to the image over ssh with credentials:
