@@ -24,7 +24,7 @@ COPY /rootfs /
 EXPOSE 22
 
 RUN apk update && \
-    apk add bash openssh && \
+    apk add bash openssh sudo && \
     mkdir -p ${SSH_SERVER_KEYS} && \
     mkdir ${PROJECT_PATH} && \
     echo -e "HostKey ${SSH_SERVER_KEYS}ssh_host_rsa_key" >> /etc/ssh/sshd_config && \
