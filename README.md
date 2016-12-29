@@ -11,7 +11,7 @@ Remote python interpreter with Alpine Linux.
 1. Run image:
 
     ```
-    docker run -it --rm --name my-python-app -p <your-ssh-port>:22 -v "$PWD":/usr/src/python-app eugenes1/python-sshd
+    docker run -d --name my-python-app -p <your-ssh-port>:22 -v "$PWD":/usr/src/python-app eugenes1/python-sshd
     ```
     
 2. Connect to the image over ssh with credentials:
@@ -22,4 +22,5 @@ Remote python interpreter with Alpine Linux.
 ### Use as remote interpreter
 
 - Python interpreter dir: `/root/venv/bin/python`
+- Project path: `/usr/src/python-app`
 - You can install new requirements without loosing it after restarting image
