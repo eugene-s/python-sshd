@@ -1,6 +1,6 @@
 # Python-sshd
 
-Remote python interpreter with Alpine Linux.
+Remote python interpreter with Alpine Linux over ssh.
 
 **Only for developing**.
 
