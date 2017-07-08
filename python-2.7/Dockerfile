@@ -2,7 +2,7 @@ FROM python:2.7
 
 ENV SSH_SERVER_KEYS /etc/ssh/host_keys/
 
-ADD entrypoint.sh /root/
+ADD entrypoint.sh /bin/
 
 EXPOSE 22
 
@@ -18,6 +18,6 @@ RUN apt-get -y update && \
 
 VOLUME ["${SSH_SERVER_KEYS}"]
 
-ENTRYPOINT ["/root/entrypoint.sh"]
+ENTRYPOINT ["/bin/entrypoint.sh"]
 
 CMD ["/usr/sbin/sshd", "-D", "-e"]
