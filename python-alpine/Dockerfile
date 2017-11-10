@@ -1,8 +1,8 @@
 FROM python:alpine
 MAINTAINER Eugene Savchenko
 
-ENV PROJECT_PATH /usr/src/python-app/
-ENV VENV_PATH /root/venv/
+ARG PROJECT_PATH=/usr/src/python-app/
+ARG VENV_PATH=/root/venv/
 ENV SSH_SERVER_KEYS /etc/ssh/host_keys/
 
 #
