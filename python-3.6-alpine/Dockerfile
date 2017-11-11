@@ -2,7 +2,6 @@ FROM python:3.6-alpine
 MAINTAINER Eugene Savchenko
 
 ARG PROJECT_PATH=/usr/src/python-app/
-ARG VENV_PATH=/root/venv/
 ENV SSH_SERVER_KEYS /etc/ssh/host_keys/
 
 #
@@ -42,7 +41,7 @@ WORKDIR ${PROJECT_PATH}
 # Saving dev virtualenv and ssh host keys
 #
 
-VOLUME ["${VENV_PATH}", "${SSH_SERVER_KEYS}"]
+VOLUME ["${SSH_SERVER_KEYS}"]
 
 ENTRYPOINT ["entrypoint.sh"]
 

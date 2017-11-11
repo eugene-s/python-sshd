@@ -1,6 +1,7 @@
 #!/bin/ash
 
 DAEMON=sshd
+if [ -z "${VENV_PATH}" ]; then VENV_PATH=/root/venv/; fi
 
 # Generate Host keys, if required
 if ! ls /etc/ssh/host_keys/ssh_host_* 1> /dev/null 2>&1; then
@@ -11,9 +12,9 @@ if ! ls /etc/ssh/host_keys/ssh_host_* 1> /dev/null 2>&1; then
     chmod 700 /etc/ssh/host_keys/
 fi
 
-if ! ls /root/env 1> /dev/null 2>&1; then
+if ! ls ${VENV_PATH} 1> /dev/null 2>&1; then
     cd /root/
-    virtualenv /root/venv/
+    virtualenv ${VENV_PATH}
 fi
 
 stop() {
