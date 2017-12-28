@@ -2,6 +2,7 @@ FROM python:alpine
 MAINTAINER Eugene Savchenko
 
 ARG PROJECT_PATH=/usr/src/python-app/
+
 ENV SSH_SERVER_KEYS /etc/ssh/host_keys/
 
 #
@@ -32,6 +33,7 @@ RUN apk update && \
     echo -e "HostKey ${SSH_SERVER_KEYS}ssh_host_ed25519_key" >> /etc/ssh/sshd_config && \
     sed -i "s/#PermitRootLogin.*/PermitRootLogin\ yes/" /etc/ssh/sshd_config && \
     echo "root:root" | chpasswd && \
+    mv /etc/profile.d/color_prompt /etc/profile.d/color_prompt.sh && \
     chmod a+x /usr/local/bin/* && \
     rm -rf /var/cache/apk/* /tmp/*
 
@@ -41,7 +43,7 @@ WORKDIR ${PROJECT_PATH}
 # Saving dev virtualenv and ssh host keys
 #
 
-VOLUME ["${SSH_SERVER_KEYS}"]
+VOLUME ["${SSH_SERVER_KEYS}", "/root/"]
 
 ENTRYPOINT ["entrypoint.sh"]
 
