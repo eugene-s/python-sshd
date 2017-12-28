@@ -17,8 +17,6 @@ if ! ls ${VENV_PATH} 1> /dev/null 2>&1; then
     virtualenv ${VENV_PATH}
 fi
 
-eval $(ssh-agent -s)
-
 stop() {
     echo -e "\nReceived SIGINT or SIGTERM. Shutting down ${DAEMON}"
     # Get PID
