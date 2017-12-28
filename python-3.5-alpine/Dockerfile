@@ -42,8 +42,8 @@ WORKDIR ${PROJECT_PATH}
 # Saving dev virtualenv and ssh host keys
 #
 
-VOLUME ["${SSH_SERVER_KEYS}"]
+VOLUME ["${SSH_SERVER_KEYS}", "/root/"]
 
-ENTRYPOINT ["entrypoint.sh", "/root/"]
+ENTRYPOINT ["entrypoint.sh"]
 
 CMD ["/usr/sbin/sshd", "-D", "-e"]
